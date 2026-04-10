@@ -43,7 +43,7 @@ export function ContactSection() {
       }}
     >
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
 
           {/* Left Column — Content */}
           <motion.div
