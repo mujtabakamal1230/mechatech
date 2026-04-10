@@ -1,0 +1,128 @@
+/* Fonts loaded via CDN link in layout or system fallbacks during build */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #239AA1;
+    --color-primary-dark: #1a7a80;
+    --color-secondary: #2B2B2B;
+    --color-accent: #C5F0F3;
+    --color-neutral: #F3F3F3;
+    --color-background: #FFFFFF;
+    --color-foreground: #2B2B2B;
+    --font-sans: var(--font-manrope), system-ui, sans-serif;
+    --font-body: var(--font-manrope), system-ui, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis handles this */
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-foreground);
+    background: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 65px;
+    letter-spacing: 0px;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 45px;
+    letter-spacing: -1.1px;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: -0.39px;
+  }
+
+  h4 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .section-tag {
+    @apply inline-flex items-center gap-2 text-primary-500 text-sm font-semibold tracking-widest uppercase mb-4;
+  }
+
+  .section-heading {
+    @apply font-display text-h1 md:text-display-sm text-secondary font-bold leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-body text-neutral-500 max-w-2xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-300;
+  }
+
+  .card-base {
+    @apply bg-white rounded-2xl border border-neutral-100 shadow-card transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-card-hover hover:-translate-y-1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+}
