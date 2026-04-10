@@ -16,7 +16,7 @@ export function AboutSection() {
     <SectionWrapper id="about" className="bg-white overflow-hidden py-24">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
+
           {/* Left Column: Content */}
           <motion.div
             variants={fadeInLeft}
@@ -41,11 +41,11 @@ export function AboutSection() {
               <p className="text-[#666666] text-base font-normal leading-[30px] font-manrope">
                 We are Mechatech, your partner in transforming ideas into market-ready products.
               </p>
-              
+
               <p className="text-[#666666] text-base font-normal leading-[30px] font-manrope">
-                A product engineering studio focused on building technically sound, 
-                production ready products. We work with startups and established companies 
-                to transform ideas into reliable, manufacturable solutions through disciplined 
+                A product engineering studio focused on building technically sound,
+                production ready products. We work with startups and established companies
+                to transform ideas into reliable, manufacturable solutions through disciplined
                 engineering, rapid prototyping, and real-world manufacturing insight.
               </p>
             </div>
@@ -61,10 +61,10 @@ export function AboutSection() {
           >
             {/* Background Dots */}
             <div className="absolute -top-10 -right-10 w-48 h-48 z-0">
-              <Image 
-                src="/images/about-dots.png" 
-                alt="Decorative Dots" 
-                width={192} 
+              <Image
+                src="/images/about-dots.png"
+                alt="Decorative Dots"
+                width={192}
                 height={192}
                 className="opacity-60"
               />
@@ -86,7 +86,8 @@ export function AboutSection() {
               initial={{ x: -20, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={viewportConfig}
-              className="absolute -bottom-6 -left-6 lg:-left-12 z-20 bg-[#239AA1] p-8 md:p-10 rounded-sm shadow-2xl max-w-[280px]"
+              className="absolute -bottom-6 -left-6 lg:-left-12 z-20 bg-[#239AA1] p-8 md:p-10 shadow-2xl max-w-[310px]"
+              style={{ clipPath: "polygon(0% 0%, 94% 0%, 100% 100%, 0% 100%, 8% 0%)" }}
             >
               <div className="flex flex-col gap-2">
                 <span className="text-white text-4xl md:text-5xl font-bold">
