@@ -29,7 +29,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-white py-12 md:py-20 lg:py-24">
+    <section id="home" className="relative min-h-screen flex items-center bg-white pt-28 pb-12 md:py-20 lg:py-24">
       <div className="container-custom w-full">
         <div
           className="relative rounded-3xl md:rounded-[40px] overflow-hidden flex items-center"

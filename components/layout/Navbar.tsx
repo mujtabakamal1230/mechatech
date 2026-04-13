@@ -75,8 +75,8 @@ export function Navbar() {
           {/* Mobile toggle */}
           <button
             className={cn(
-              "md:hidden p-2 rounded-lg transition-colors",
-              isScrolled ? "text-secondary hover:bg-neutral-100" : "text-white hover:bg-white/10"
+              "md:hidden p-2 rounded-lg transition-colors text-secondary hover:bg-neutral-100",
+              !isScrolled && "hover:bg-black/5"
             )}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle mobile menu"

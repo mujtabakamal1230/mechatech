@@ -35,7 +35,7 @@ export function ContactSection() {
   return (
     <SectionWrapper
       id="contact"
-      className="relative overflow-visible py-24 lg:py-32"
+      className="relative overflow-hidden lg:overflow-visible py-24 lg:py-32"
       style={{
         backgroundImage: "url('/images/contact-bg.jpg')",
         backgroundSize: "cover",
@@ -57,7 +57,7 @@ export function ContactSection() {
               variants={fadeInLeft}
               className="text-secondary font-bold leading-tight"
               style={{
-                fontSize: "clamp(40px, 8vw, 68px)",
+                fontSize: "clamp(32px, 8vw, 68px)",
                 textTransform: "uppercase"
               }}
             >
