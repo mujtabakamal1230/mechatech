@@ -34,27 +34,6 @@ export function TestimonialsSection() {
             <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}
         </motion.div>
-
-        {/* Client Logos Row */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={viewportConfig}
-          transition={{ duration: 0.8 }}
-          className="flex flex-wrap justify-center items-center gap-4"
-        >
-          {TESTIMONIALS_LOGOS.map((logo, idx) => (
-            <div key={idx} className="relative h-14 flex items-center justify-center">
-              <Image
-                src={logo}
-                alt={`Client Logo ${idx + 1}`}
-                width={160}
-                height={64}
-                className="object-contain h-14"
-              />
-            </div>
-          ))}
-        </motion.div>
       </div>
     </SectionWrapper>
   );

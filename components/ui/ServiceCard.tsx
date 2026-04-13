@@ -28,7 +28,7 @@ export function ServiceCard({ service, index, className, bgColor }: ServiceCardP
       <motion.div
         variants={cardHover}
         className={cn(
-          "p-8 md:p-10 h-full flex flex-col items-center text-center transition-all duration-300",
+          "p-8 md:p-10 h-full flex flex-col items-center text-center",
           "rounded-[18px] shadow-sm hover:shadow-md",
           className
         )}

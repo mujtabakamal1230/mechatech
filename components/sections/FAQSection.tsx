@@ -2,47 +2,36 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
+import { SectionHeader } from "@/components/shared/SectionHeader";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 import { FAQ_ITEMS } from "@/lib/data";
 import type { FAQItem } from "@/types";
 
 interface FAQItemComponentProps {
   item: FAQItem;
-  index: number;
   isOpen: boolean;
   onToggle: () => void;
 }
 
-function FAQItemComponent({ item, index, isOpen, onToggle }: FAQItemComponentProps) {
+function FAQItemComponent({ item, isOpen, onToggle }: FAQItemComponentProps) {
   return (
     <motion.div
       variants={fadeInUp}
-      className="border-b border-neutral-200"
+      className="border border-neutral-100 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-card transition-shadow duration-200"
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-6 py-8 md:py-10 text-left group"
+        className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left"
         aria-expanded={isOpen}
       >
-        <h3 
-          className="font-manrope font-medium text-secondary"
-          style={{
-            fontSize: "30px",
-            lineHeight: "43.96px",
-            verticalAlign: "middle"
-          }}
-        >
-          {index + 1}. {item.question}
-        </h3>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-          className="shrink-0 text-secondary opacity-60 group-hover:opacity-100 transition-opacity"
-        >
-          <ChevronDown size={28} />
-        </motion.div>
+        <span className="font-sans font-semibold text-secondary text-sm md:text-base leading-snug">
+          {item.question}
+        </span>
+        <span className="shrink-0 w-8 h-8 rounded-full bg-neutral-50 border border-neutral-100 flex items-center justify-center text-primary-500 transition-transform duration-200">
+          {isOpen ? <Minus size={14} /> : <Plus size={14} />}
+        </span>
       </button>
 
       <AnimatePresence initial={false}>
@@ -51,17 +40,11 @@ function FAQItemComponent({ item, index, isOpen, onToggle }: FAQItemComponentPro
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="pb-10">
-              <p 
-                className="font-manrope font-semibold text-[#616161]"
-                style={{
-                  fontSize: "20px",
-                  lineHeight: "30px",
-                  letterSpacing: "-0.39px"
-                }}
-              >
+            <div className="px-5 md:px-6 pb-5 md:pb-6">
+              <div className="h-px bg-neutral-100 mb-4" />
+              <p className="text-neutral-500 text-sm leading-relaxed">
                 {item.answer}
               </p>
             </div>
@@ -78,31 +61,62 @@ export function FAQSection() {
   const toggle = (id: string) => setOpenId(openId === id ? null : id);
 
   return (
-    <SectionWrapper id="faq" className="bg-white py-24">
-      <div className="container-custom max-w-6xl mx-auto">
-        <div className="text-center mb-16 lg:mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-            Frequently Asked Questions
-          </h2>
-        </div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-          className="flex flex-col"
-        >
-          {FAQ_ITEMS.map((item, index) => (
-            <FAQItemComponent
-              key={item.id}
-              index={index}
-              item={item}
-              isOpen={openId === item.id}
-              onToggle={() => toggle(item.id)}
+    <SectionWrapper id="faq" className="bg-neutral-50">
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-start">
+          {/* Left — Header */}
+          <div className="lg:col-span-2">
+            <SectionHeader
+              tag="FAQs"
+              title="Frequently Asked"
+              titleHighlight="Questions"
+              description="Everything you need to know about working with Mechatech."
+              align="left"
+              className="mb-8"
             />
-          ))}
-        </motion.div>
+
+            {/* Contact nudge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportConfig}
+              transition={{ delay: 0.3 }}
+              className="bg-white border border-neutral-100 rounded-2xl p-6 shadow-card"
+            >
+              <p className="font-sans font-semibold text-secondary text-sm mb-1">
+                Still have questions?
+              </p>
+              <p className="text-xs text-neutral-400 mb-4 leading-relaxed">
+                Our team is happy to walk you through any details before you commit.
+              </p>
+              <motion.button
+                whileTap={{ scale: 0.97 }}
+                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                className="bg-primary-500 text-white font-sans font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-primary-600 transition-colors duration-200 w-full"
+              >
+                Get in Touch
+              </motion.button>
+            </motion.div>
+          </div>
+
+          {/* Right — Accordion */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="lg:col-span-3 space-y-3"
+          >
+            {FAQ_ITEMS.map((item) => (
+              <FAQItemComponent
+                key={item.id}
+                item={item}
+                isOpen={openId === item.id}
+                onToggle={() => toggle(item.id)}
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </SectionWrapper>
   );

@@ -88,7 +88,7 @@ export function ContactSection() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="relative lg:-mt-64 z-20"
+            className="relative lg:-mt-52 z-20"
           >
             <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-2xl border border-neutral-100">
               <div className="text-center mb-10">

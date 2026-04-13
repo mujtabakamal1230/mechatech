@@ -88,7 +88,7 @@ export const cardHover = {
   hover: {
     scale: 1.02,
     y: -4,
-    transition: { duration: 0.3, ease: "easeOut" },
+    transition: { duration: 0.2, ease: "easeOut" },
   },
 };
 

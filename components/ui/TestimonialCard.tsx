@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeInUp, viewportConfig } from "@/lib/animations";
+import { fadeInUp, cardHover, viewportConfig } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 import type { Testimonial } from "@/types";
 
 interface TestimonialCardProps {
@@ -11,11 +12,16 @@ interface TestimonialCardProps {
 export function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
   return (
     <motion.div
-      variants={fadeInUp}
+      variants={{ ...fadeInUp, ...cardHover }}
       initial="hidden"
       whileInView="visible"
+      whileHover="hover"
+      animate="rest"
       viewport={viewportConfig}
-      className="bg-[#239194] rounded-[24px] p-8 flex flex-col gap-4 h-full shadow-sm hover:shadow-md transition-all duration-300"
+      className={cn(
+        "bg-[#239194] rounded-[24px] p-8 flex flex-col gap-4 h-full shadow-sm hover:shadow-md transition-shadow duration-200",
+        className
+      )}
     >
       {/* Client Logo */}
       <div className="relative w-full h-[64px] flex items-start">

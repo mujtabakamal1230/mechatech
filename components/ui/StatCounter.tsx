@@ -19,7 +19,7 @@ export function StatCounter({ stat, className }: StatCounterProps) {
       viewport={viewportConfig}
       className={cn("text-center group", className)}
     >
-      <div className="font-sans font-bold text-4xl md:text-5xl text-primary-500 mb-1 group-hover:scale-110 transition-transform duration-300">
+      <div className="font-sans font-bold text-4xl md:text-5xl text-primary-500 mb-1 group-hover:scale-110 transition-transform duration-200">
         {stat.value}
       </div>
       <div className="text-sm text-neutral-500 font-medium">{stat.label}</div>

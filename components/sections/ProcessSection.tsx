@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
@@ -11,6 +12,8 @@ import {
 import { PROCESS_STEPS } from "@/lib/data";
 
 export function ProcessSection() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const linePattern = [
     { color: "#239AA1" }, // 1-2
     { color: "#239AA1" }, // 2-3
@@ -28,6 +31,15 @@ export function ProcessSection() {
     "#239AA1", // 5
     "#239AA1", // 6
   ];
+
+  const cardVariants = {
+    rest: { y: 0, scale: 1 },
+    hover: { 
+      y: -8, 
+      scale: 1.02,
+      transition: { duration: 0.2, ease: "easeOut" }
+    }
+  };
 
   return (
     <SectionWrapper id="process" className="bg-white py-24">
@@ -53,11 +65,13 @@ export function ProcessSection() {
               {PROCESS_STEPS.map((step, idx) => (
                 <motion.div
                   key={step.id}
-                  variants={fadeInUp}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className="transition-all duration-300"
+                  variants={{ ...fadeInUp, ...cardVariants }}
+                  animate={hoveredIndex === idx ? "hover" : "rest"}
+                  onMouseEnter={() => setHoveredIndex(idx)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  whileHover="hover"
                 >
-                  <div className="rounded-[20px] overflow-hidden shadow-sm border border-neutral-100">
+                  <div className="rounded-[20px] overflow-hidden shadow-sm border border-neutral-100 cursor-pointer">
                     <Image
                       src={`/images/way/${idx + 1}.png`}
                       alt={step.title}
@@ -69,7 +83,9 @@ export function ProcessSection() {
                   {/* Title for mobile (hidden on desktop) */}
                   <div className="mt-4 lg:hidden">
                     <h3
-                      className="font-manrope font-semibold text-secondary"
+                      className={`font-manrope font-semibold transition-colors duration-300 ${
+                        hoveredIndex === idx ? "text-[#239AA1]" : "text-secondary"
+                      }`}
                       style={{
                         fontSize: "18px",
                         lineHeight: "22px",
@@ -103,11 +119,13 @@ export function ProcessSection() {
                   {dotColors.map((color, idx) => (
                     <div
                       key={idx}
-                      className="w-2 h-2 rounded-full absolute -ml-1"
+                      className="w-2 h-2 rounded-full absolute -ml-1 transition-all duration-300"
                       style={{
-                        backgroundColor: color,
+                        backgroundColor: hoveredIndex === idx ? "#239AA1" : color,
                         left: `${(idx * 16.666)}%`,
-                        top: "-4px"
+                        top: "-4px",
+                        transform: hoveredIndex === idx ? "scale(1.5)" : "scale(1)",
+                        boxShadow: hoveredIndex === idx ? "0 0 10px rgba(35, 154, 161, 0.5)" : "none"
                       }}
                     />
                   ))}
@@ -122,10 +140,17 @@ export function ProcessSection() {
 
             {/* Titles Grid - Desktop Only */}
             <div className="hidden lg:grid grid-cols-6 gap-6">
-              {PROCESS_STEPS.map((step) => (
-                <div key={step.id} className="text-left">
+              {PROCESS_STEPS.map((step, idx) => (
+                <div 
+                  key={step.id} 
+                  className="text-left"
+                  onMouseEnter={() => setHoveredIndex(idx)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
                   <h3
-                    className="font-manrope font-semibold text-secondary hover:text-[#239AA1] transition-colors duration-300"
+                    className={`font-manrope font-semibold transition-colors duration-300 cursor-pointer ${
+                      hoveredIndex === idx ? "text-[#239AA1]" : "text-secondary"
+                    }`}
                     style={{
                       fontSize: "20px",
                       lineHeight: "23px",
