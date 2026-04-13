@@ -7,11 +7,11 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary text-white">
-      <div className="container-custom py-16">
+      <div className="container-custom py-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Logo variant="light" />
+            <Logo variant="light" className="brightness-0 invert-[100]" />
             <p className="mt-4 text-sm text-neutral-400 leading-relaxed">
               Transforming innovative ideas into engineered reality. 8+ years of
               precision engineering excellence.
@@ -36,7 +36,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-sans font-semibold text-sm tracking-widest uppercase text-primary-400 mb-4">
+            {/* <h4 className="font-sans font-semibold text-sm tracking-widest uppercase text-primary-400 mb-4">
               Navigation
             </h4>
             <ul className="space-y-3">
@@ -50,12 +50,12 @@ export function Footer() {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-sans font-semibold text-sm tracking-widest uppercase text-primary-400 mb-4">
+            {/* <h4 className="font-sans font-semibold text-sm tracking-widest uppercase text-primary-400 mb-4">
               Services
             </h4>
             <ul className="space-y-3 text-sm text-neutral-400">
@@ -68,7 +68,7 @@ export function Footer() {
                   </li>
                 )
               )}
-            </ul>
+            </ul> */}
           </div>
 
           {/* Contact */}

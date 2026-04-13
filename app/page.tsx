@@ -24,7 +24,7 @@ export default function Home() {
         <FAQSection />
         <ContactSection />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </SmoothScrollProvider>
   );
 }

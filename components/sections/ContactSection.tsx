@@ -75,11 +75,11 @@ export function ContactSection() {
               Have a project in mind or just want to say hello? We&apos;re always open to new ideas, collaborations, or creative challenges. Reach out — let&apos;s turn your vision into reality.
             </motion.p>
 
-            <motion.div variants={fadeInLeft}>
+            {/* <motion.div variants={fadeInLeft}>
               <button className="bg-[#239AA1] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1d8085] transition-colors duration-300">
                 Contact Us
               </button>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Right Column — Floating Form */}

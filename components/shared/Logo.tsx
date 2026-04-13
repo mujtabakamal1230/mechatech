@@ -14,9 +14,9 @@ export function Logo({ variant = "dark", scrolled = false, className }: LogoProp
     <a href="#home" className={cn("flex items-center gap-2 group", className)}>
       {
         isLight ? (
-          <Image src="/images/logo.png" alt="Logo" className="h-12 object-contain" width={200} height={64} />
+          <Image src="/images/logo.png" alt="Logo" className="h-12 object-contain object-left" width={200} height={64} />
         ) : (
-          <Image src="/images/logo.png" alt="Logo" className="h-12 object-contain" width={200} height={64} />
+          <Image src="/images/logo.png" alt="Logo" className="h-12 object-contain object-left" width={200} height={64} />
         )
       }
     </a>
