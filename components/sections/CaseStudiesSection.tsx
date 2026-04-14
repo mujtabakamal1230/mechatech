@@ -105,7 +105,7 @@ function StickyCard({ study, index, progress, range, targetScale }: StickyCardPr
 
           {/* Image Area */}
           <div className="p-8 lg:pr-12 lg:pl-0 flex justify-center lg:justify-end">
-            <div className="w-full max-w-[485px] rounded-[20px] overflow-hidden">
+            <div className="w-full max-w-[485px] lg:min-w-[430px] rounded-[20px] overflow-hidden">
               <Image
                 src={study.image}
                 alt={study.imageAlt}
