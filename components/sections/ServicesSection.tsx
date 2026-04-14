@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
-import { SectionHeader } from "@/components/shared/SectionHeader";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { staggerContainer, viewportConfig } from "@/lib/animations";
 import { SERVICES } from "@/lib/data";
@@ -25,10 +24,10 @@ export function ServicesSection() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {SERVICES.map((service, index) => (
-            <ServiceCard 
-              key={service.id} 
-              service={service} 
-              index={index} 
+            <ServiceCard
+              key={service.id}
+              service={service}
+              index={index}
               bgColor={index % 3 === 1 ? "#F7F7F7" : "#EAFEFF"}
             />
           ))}
