@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
 import { fadeInUp, staggerContainer, viewportConfig, fadeInLeft, fadeInRight } from "@/lib/animations";
-import { sendEmail } from "@/app/actions/email";
 import { cn } from "@/lib/utils";
 
 const INITIAL_FORM = {
@@ -90,7 +89,16 @@ export function ContactSection() {
     setLoading(true);
     
     try {
-      const result = await sendEmail(form);
+      // Use PHP bridge for static hosting
+      const response = await fetch("/send-email.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const result = await response.json();
 
       if (result.success) {
         setSuccess(true);

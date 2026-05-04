@@ -91,10 +91,10 @@ export function AboutSection() {
             >
               <div className="flex flex-col gap-2">
                 <span className="text-white text-4xl md:text-5xl font-bold">
-                  08 Year&apos;s
+                  08 Years
                 </span>
                 <p className="text-white/90 text-sm md:text-base leading-tight">
-                  years of experience <br /> in this industry
+                  of experience in this industry
                 </p>
               </div>
             </motion.div>

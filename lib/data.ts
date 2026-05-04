@@ -116,17 +116,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tags: ["Fabrication", "Structural Analysis"],
     imageAlt: "TDFC fabrication project",
     image: "/images/case-studies/tdfc.png",
-  },
-  {
-    id: "gamal",
-    title: "Gamal Abdallah",
-    subtitle: "Electromechanical design of a Cocktail smoker",
-    description:
-      "Developed a compact electromechanical device for precise smoke infusion in beverages. The project included full mechanical and electrical design, prototyping, performance validation, and production-ready CAD with technical documentation.",
-    tags: ["Fabrication", "Structural Analysis"],
-    imageAlt: "TDFC fabrication project",
-    image: "/images/case-studies/gamal.png",
-  },
+  }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
