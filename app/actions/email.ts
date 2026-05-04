@@ -17,7 +17,7 @@ export async function sendEmail(formData: {
     const { data, error } = await resend.emails.send({
       from: "Mechatech Contact <onboarding@resend.dev>",
       to: [process.env.CONTACT_EMAIL || "hello@mecha-tech.net"],
-      reply_to: email,
+      replyTo: email,
       subject: `New Contact Form Submission from ${firstName} ${lastName}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
