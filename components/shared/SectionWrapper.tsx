@@ -9,9 +9,10 @@ interface SectionWrapperProps {
   className?: string;
   id?: string;
   style?: React.CSSProperties;
+  viewport?: any;
 }
 
-export function SectionWrapper({ children, className, id, style }: SectionWrapperProps) {
+export function SectionWrapper({ children, className, id, style, viewport }: SectionWrapperProps) {
   return (
     <motion.section
       id={id}
@@ -19,7 +20,7 @@ export function SectionWrapper({ children, className, id, style }: SectionWrappe
       variants={fadeIn}
       initial="hidden"
       whileInView="visible"
-      viewport={viewportConfig}
+      viewport={viewport || viewportConfig}
       className={cn("section-padding", className)}
     >
       {children}

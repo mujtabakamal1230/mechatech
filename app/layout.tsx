@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     description: "From concept to production — engineering excellence since 2016.",
     type: "website",
   },
+  icons: {
+    icon: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({

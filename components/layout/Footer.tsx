@@ -18,15 +18,15 @@ export function Footer() {
             </p>
             <div className="flex gap-3 mt-6">
               {[
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
-                { icon: Instagram, href: "#" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/mechatech-engineering-solutions/" },
+                { icon: Instagram, href: "https://www.instagram.com/mecha_tech_eng?igsh=MXNqNGlxOWZ6Z28xMA%3D%3D&utm_source=qr" },
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}
                   href={href}
                   className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary-500 transition-colors duration-200"
                   aria-label="Social link"
+                  target="_blank"
                 >
                   <Icon size={16} />
                 </a>
@@ -78,13 +78,35 @@ export function Footer() {
             </h4>
             <ul className="space-y-4">
               {[
-                { icon: Mail, label: "hello@mechatech.io" },
-                { icon: Phone, label: "+92 300 000 0000" },
-                { icon: MapPin, label: "Karachi, Pakistan" },
+                { icon: Mail, label: "hello@mecha-tech.net" },
+                { icon: Phone, label: "+92334-9573415\n+966500510607" },
+                { icon: MapPin, label: "Islamabad, Pakistan" },
               ].map(({ icon: Icon, label }) => (
                 <li key={label} className="flex items-start gap-3 text-sm text-neutral-400">
                   <Icon size={15} className="text-primary-400 mt-0.5 shrink-0" />
-                  <span>{label}</span>
+                  <div className="flex flex-col">
+                    {label.split("\n").map((text, idx) => {
+                      const isEmail = text.includes("@");
+                      const isPhone = text.startsWith("+");
+                      const href = isEmail
+                        ? `mailto:${text}`
+                        : isPhone
+                          ? `tel:${text.replace(/[-\s]/g, "")}`
+                          : null;
+
+                      return href ? (
+                        <a
+                          key={idx}
+                          href={href}
+                          className="hover:text-white transition-colors duration-200"
+                        >
+                          {text}
+                        </a>
+                      ) : (
+                        <span key={idx}>{text}</span>
+                      );
+                    })}
+                  </div>
                 </li>
               ))}
             </ul>

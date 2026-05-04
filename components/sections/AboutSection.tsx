@@ -94,7 +94,7 @@ export function AboutSection() {
                   08 Year&apos;s
                 </span>
                 <p className="text-white/90 text-sm md:text-base leading-tight">
-                  years of experiences <br /> in this industry
+                  years of experience <br /> in this industry
                 </p>
               </div>
             </motion.div>

@@ -13,7 +13,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Case Studies", href: "#case-studies" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export const STATS: StatItem[] = [
@@ -91,32 +90,42 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "evolve-vapors",
     title: "Evolve Vapors",
-    subtitle: "Product Design & Manufacturing Support",
+    subtitle: "Grain Oil Cold Press – Design & Manufacturing Support",
     description:
-      "End-to-end product development for a next-generation vaporizer device, including industrial design, thermal management, embedded electronics, and mass production setup.",
+      "Developed a high-efficiency grain cold press system for oil extraction and nutrient retention. The scope included mechanical design, performance testing, manufacturing optimization, and full manufacturing support through production-ready CAD and technical documentation.",
     tags: ["Industrial Design", "Electronics"],
     imageAlt: "Evolve Vapors product",
-    image: "/images/evolve-vapors.png",
+    image: "/images/case-studies/evolve-vapors.png",
   },
   {
     id: "millat-tractor",
     title: "Millat Tractor Limited",
-    subtitle: "Smart Tractor Technology Development",
+    subtitle: "64 HP Three-Cylinder Diesel Engine Reverse Engineering & Analysis",
     description:
-      "Developed advanced monitoring systems and mechanical upgrades for the Millat Tractor fleet, improving performance metrics and enabling predictive maintenance capabilities.",
+      "Reverse engineered a 64 HP three-cylinder diesel engine from 3D scan data. Generated detailed CAD models and performed mechanical and thermal analyses to evaluate structural integrity and thermal performance.",
     tags: ["IoT Integration", "Mechanical Engineering"],
     imageAlt: "Millat Tractor project",
-    image: "/images/millat-tractor-limited.png",
+    image: "/images/case-studies/millat-tractor-limited.png",
   },
   {
     id: "tdfc",
     title: "Technology Development & Fabrication Company (TDFC)",
-    subtitle: "Custom Fabrication Solutions",
+    subtitle: "Low Bed Trailer Chassis Design with Foldable Rear Extension",
     description:
-      "Delivered specialized fabrication and mechanical engineering services for TDFC's industrial product line, including structural analysis and precision component manufacturing.",
+      "Designed the complete low bed trailer chassis, including an integrated storage container, foldable rear extension, and suspension system. The scope also included suspension calculations and structural validation using Finite Element Analysis to ensure strength, stability, and reliable performance.",
     tags: ["Fabrication", "Structural Analysis"],
     imageAlt: "TDFC fabrication project",
-    image: "/images/tdfc.png",
+    image: "/images/case-studies/tdfc.png",
+  },
+  {
+    id: "gamal",
+    title: "Gamal Abdallah",
+    subtitle: "Electromechanical design of a Cocktail smoker",
+    description:
+      "Developed a compact electromechanical device for precise smoke infusion in beverages. The project included full mechanical and electrical design, prototyping, performance validation, and production-ready CAD with technical documentation.",
+    tags: ["Fabrication", "Structural Analysis"],
+    imageAlt: "TDFC fabrication project",
+    image: "/images/case-studies/gamal.png",
   },
 ];
 

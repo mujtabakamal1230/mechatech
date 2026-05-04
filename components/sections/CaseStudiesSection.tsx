@@ -15,7 +15,7 @@ export function CaseStudiesSection() {
   });
   
   return (
-    <SectionWrapper id="case-studies" className="bg-white py-24">
+    <SectionWrapper id="case-studies" className="bg-white py-24" viewport={{ once: true, amount: 0 }}>
       <div className="container-custom">
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-secondary">
